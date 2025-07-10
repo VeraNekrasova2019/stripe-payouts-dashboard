@@ -1,0 +1,13 @@
+{
+    "servers": {
+        "git": {
+            "type": "http",
+            "url": "https://api.githubcopilot.com/mcp/"
+        },
+            
+        "figma": {
+            "command": "cmd",
+            "args": ["/c", "npx", "-y", "figma-developer-mcp", "--stdio"]
+        }
+    }
+}
