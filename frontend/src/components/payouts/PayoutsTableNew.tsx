@@ -60,7 +60,7 @@ export function PayoutsTable({
 
         {/* Export Button */}
         <div className="flex justify-end">
-          <Button variant="secondary" size="sm" onClick={onExport}>
+          <Button variant="secondary" onClick={onExport}>
             Export
           </Button>
         </div>
@@ -253,7 +253,6 @@ export function PayoutsTable({
         <div className="flex items-center gap-2">
           <Button
             variant="secondary"
-            size="sm"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
             style={{
@@ -264,7 +263,6 @@ export function PayoutsTable({
           </Button>
           <Button
             variant="secondary"
-            size="sm"
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
           >

@@ -37,7 +37,7 @@ class APIService {
 
   private async request<T>(
     endpoint: string,
-    options: RequestInit = {}
+    options: Record<string, any> = {}
   ): Promise<APIResponse<T>> {
     try {
       const response = await fetch(`${this.baseURL}${endpoint}`, {

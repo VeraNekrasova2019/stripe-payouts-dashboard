@@ -3,13 +3,11 @@ import { cn } from '../../utils/cn';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
-  size?: 'sm' | 'md';
   children: React.ReactNode;
 }
 
 export function Button({ 
   variant = 'primary', 
-  size = 'md', 
   className, 
   children, 
   ...props 

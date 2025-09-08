@@ -48,10 +48,10 @@ export function BalanceCard({ balance, onPayout, onSeeDetails }: BalanceCardProp
 
         {/* Buttons Section */}
         <div className="flex items-center gap-2">
-          <Button variant="primary" size="sm" onClick={onPayout}>
+          <Button variant="primary" onClick={onPayout}>
             Pay out
           </Button>
-          <Button variant="secondary" size="sm" onClick={onSeeDetails}>
+          <Button variant="secondary" onClick={onSeeDetails}>
             See details
           </Button>
         </div>
