@@ -16,7 +16,7 @@ interface APIGatewayProxyResult {
   body: string;
 }
 
-const stripeService = new StripeService();
+const _stripeService = new StripeService();
 
 // Mock data for development/testing
 const mockBalance = {
@@ -218,7 +218,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       case httpMethod === 'GET' && path === '/balance':
         try {
           // Use mock data for now - replace with actual Stripe call when ready
-          // const balance = await stripeService.getBalance();
+          // const balance = await _stripeService.getBalance();
           return createResponse(200, {
             success: true,
             data: mockBalance
@@ -236,7 +236,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
           const filters = parseFilters(queryStringParameters || null);
           
           // Use mock data for now - replace with actual Stripe call when ready
-          // const payoutsResponse = await stripeService.listPayouts(filters);
+          // const payoutsResponse = await _stripeService.listPayouts(filters);
           
           // Apply basic filtering to mock data
           let filteredPayouts = [...mockPayouts];
@@ -288,7 +288,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
           }
 
           // Use mock response for now - replace with actual Stripe call when ready
-          // const payout = await stripeService.createPayout(payoutData);
+          // const payout = await _stripeService.createPayout(payoutData);
           
           const mockPayout = {
             id: `po_mock_${Date.now()}`,
@@ -333,7 +333,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
           }
 
           // Use mock data for now - replace with actual Stripe call when ready
-          // const payout = await stripeService.getPayout(payoutId);
+          // const payout = await _stripeService.getPayout(payoutId);
           
           const payout = mockPayouts.find(p => p.id === payoutId);
           

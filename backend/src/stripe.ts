@@ -9,7 +9,7 @@ import type {
 
 // Initialize Stripe with the secret key
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2024-06-20',
+  apiVersion: '2023-10-16',
 });
 
 export class StripeService {
@@ -83,8 +83,8 @@ export class StripeService {
         description: payout.description || undefined,
         failure_code: payout.failure_code || undefined,
         failure_message: payout.failure_message || undefined,
-        method: payout.method,
-        source_type: payout.source_type,
+        method: (payout.method as 'standard' | 'instant') || 'standard',
+        source_type: (payout.source_type as 'card' | 'bank_account') || 'bank_account',
         statement_descriptor: payout.statement_descriptor || undefined,
         type: payout.type
       }));
@@ -128,8 +128,8 @@ export class StripeService {
         description: payout.description || undefined,
         failure_code: payout.failure_code || undefined,
         failure_message: payout.failure_message || undefined,
-        method: payout.method,
-        source_type: payout.source_type,
+        method: (payout.method as 'standard' | 'instant') || 'standard',
+        source_type: (payout.source_type as 'card' | 'bank_account') || 'bank_account',
         statement_descriptor: payout.statement_descriptor || undefined,
         type: payout.type
       };
@@ -161,8 +161,8 @@ export class StripeService {
         description: payout.description || undefined,
         failure_code: payout.failure_code || undefined,
         failure_message: payout.failure_message || undefined,
-        method: payout.method,
-        source_type: payout.source_type,
+        method: (payout.method as 'standard' | 'instant') || 'standard',
+        source_type: (payout.source_type as 'card' | 'bank_account') || 'bank_account',
         statement_descriptor: payout.statement_descriptor || undefined,
         type: payout.type
       };
@@ -193,7 +193,7 @@ export class StripeService {
    */
   private getNextBusinessDay(): string {
     const today = new Date();
-    let nextBusinessDay = new Date(today);
+    const nextBusinessDay = new Date(today);
     nextBusinessDay.setDate(today.getDate() + 1);
 
     // Skip weekends
